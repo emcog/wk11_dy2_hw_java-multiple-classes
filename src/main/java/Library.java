@@ -7,6 +7,8 @@ public class Library {
     private ArrayList<Book> books;
     private int capacity;
 
+
+
 //    constructor
     public Library(String name, int capacity) {
         this.name = name;
@@ -26,6 +28,11 @@ public class Library {
         if(this.booksCount() < this.capacity) {
             this.books.add(book);
         }
+    }
+
+    public void loanBook(Book book, Borrower borrower) {
+        this.books.remove(book);
+        borrower.borrowing.add(book);
     }
 }
 

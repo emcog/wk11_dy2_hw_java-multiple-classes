@@ -7,6 +7,7 @@ public class LibraryTest {
     private Library library;
     private Book dasKapital;
 
+    Borrower borrower;
 
     @Before
     public void before(){
@@ -37,5 +38,11 @@ public class LibraryTest {
         library.addBook(dasKapital);
         library.addBook(dasKapital);
         assertEquals(2, library.booksCount());
+    }
+
+    @Test
+    public void canLoan() {
+        library.loanBook(dasKapital);
+        assertEquals(1, borrower.borrowCount());
     }
 }
