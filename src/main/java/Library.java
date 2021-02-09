@@ -1,4 +1,4 @@
-import java.awt.print.Book;
+//import java.awt.print.Book;
 import java.util.ArrayList;
 
 public class Library {
@@ -9,14 +9,19 @@ public class Library {
 //    constructor
     public Library(String name) {
         this.name = name;
+        this.books = new ArrayList<Book>();
     }
 
-    public String getName() {
+    public String getLibraryName() {
         return this.name;
     }
 
-    public int countBooks() {
-        return books.size();
+    public int booksCount() {
+        return this.books.size();
+    }
+
+    public void addBook(Book book) {
+        this.books.add(book);
     }
 }
 
