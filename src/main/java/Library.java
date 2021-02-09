@@ -5,11 +5,13 @@ public class Library {
 
     private String name;
     private ArrayList<Book> books;
+    private int capacity;
 
 //    constructor
-    public Library(String name) {
+    public Library(String name, int capacity) {
         this.name = name;
         this.books = new ArrayList<Book>();
+        this.capacity = capacity;
     }
 
     public String getLibraryName() {
@@ -21,7 +23,9 @@ public class Library {
     }
 
     public void addBook(Book book) {
-        this.books.add(book);
+        if(this.booksCount() < this.capacity) {
+            this.books.add(book);
+        }
     }
 }
 

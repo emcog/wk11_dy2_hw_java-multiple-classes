@@ -5,13 +5,13 @@ import static org.junit.Assert.assertEquals;
 
 public class LibraryTest {
     private Library library;
-    private Book book;
+    private Book dasKapital;
 
 
     @Before
     public void before(){
-        library = new Library("Gym");
-        book = new Book("Das Kapital", "Karl Marx", "Sci Fi", 1867);
+        library = new Library("Gym", 2);
+        dasKapital = new Book("Das Kapital", "Karl Marx", "Sci Fi", 1867);
     }
 
     @Test
@@ -27,7 +27,15 @@ public class LibraryTest {
 
     @Test
     public void canAddBook() {
-        library.addBook(book);
+        library.addBook(dasKapital);
         assertEquals(1, library.booksCount());
+    }
+
+    @Test
+    public void cantExceedCapacity() {
+        library.addBook(dasKapital);
+        library.addBook(dasKapital);
+        library.addBook(dasKapital);
+        assertEquals(2, library.booksCount());
     }
 }
